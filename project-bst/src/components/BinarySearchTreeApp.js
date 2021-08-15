@@ -15,20 +15,14 @@ class BinarySearchTreeApp extends Component {
     this.state.bTree.insert(this.state.insertValue);
   };
 
-  // remove = () => {
-  //   if (this.state.bTree !== null && !isNaN(this.state.remove)) {
-  //     this.state.bTree.remove(parseInt(this.state.remove, 10));
-  //   }
-  // };
   remove = (value) => {
-    console.log("deleting!");
-    if (this.state.bTree !== null && !isNaN()) {
-      this.state.bTree.remove(value);
-    }
+    console.log(value);
+
+    this.state.bTree.remove(value);
+    this.setState({ bTree: this.state.bTree });
   };
 
   componentDidMount() {
-    console.log("componentdidmount");
     this.state.bTree.insert(10);
     this.state.bTree.insert(0);
     this.state.bTree.insert(25);
@@ -44,10 +38,12 @@ class BinarySearchTreeApp extends Component {
 
   render() {
     const values = this.state.bTree.levelOrder();
-    console.log("values" + values);
     return (
       <div>
-        <div className="BST" style={{ position: "relative" }}>
+        <div
+          className="BST"
+          style={{ position: "relative", marginTop: "10px" }}
+        >
           {values.length > 0 &&
             values.map((value, index) => (
               <BinaryTreeLevel

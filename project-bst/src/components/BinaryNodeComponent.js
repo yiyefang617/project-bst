@@ -8,42 +8,42 @@ const BinaryNodeComponent = (props) => {
     leftStyle = {
       left: "-20vw",
       width: "20vw",
-      MozTransform: "rotate(-20deg)",
+      MozTransform: "rotate(-15deg)",
       MozTransformOrigin: "100% 0%",
-      WebkitTransform: "rotate(-20deg)",
+      WebkitTransform: "rotate(-15deg)",
       WebkitTransformOrigin: "100% 0%",
-      transform: "rotate(-20deg)",
+      transform: "rotate(-15deg)",
       transformOrigin: "100% 0",
     };
     rightStyle = {
       right: "0vw",
       width: "20vw",
-      MozTransform: "rotate(-160deg)",
+      MozTransform: "rotate(-165deg)",
       MozTransformOrigin: "100% 0%",
-      WebkitTransform: "rotate(-160deg)",
+      WebkitTransform: "rotate(-165deg)",
       WebkitTransformOrigin: "100% 0%",
-      transform: "rotate(-160deg)",
+      transform: "rotate(-165deg)",
       transformOrigin: "100% 0",
     };
   } else if (props.level === 2) {
     leftStyle = {
       left: "-10vw",
       width: "10vw",
-      MozTransform: "rotate(-40deg)",
+      MozTransform: "rotate(-30deg)",
       MozTransformOrigin: "100% 0%",
-      WebkitTransform: "rotate(-40deg)",
+      WebkitTransform: "rotate(-30deg)",
       WebkitTransformOrigin: "100% 0%",
-      transform: "rotate(-40deg)",
+      transform: "rotate(-30deg)",
       transformOrigin: "100% 0",
     };
     rightStyle = {
       right: "0vw",
       width: "10vw",
-      MozTransform: "rotate(-140deg)",
+      MozTransform: "rotate(-150deg)",
       MozTransformOrigin: "100% 0%",
-      WebkitTransform: "rotate(-140deg)",
+      WebkitTransform: "rotate(-150deg)",
       WebkitTransformOrigin: "100% 0%",
-      transform: "rotate(-140deg)",
+      transform: "rotate(-150deg)",
       transformOrigin: "100% 0",
     };
   } else if (props.level === 3) {
@@ -71,21 +71,21 @@ const BinaryNodeComponent = (props) => {
     leftStyle = {
       left: "-5.75vw",
       width: "5.75vw",
-      MozTransform: "rotate(-80deg)",
+      MozTransform: "rotate(-70deg)",
       MozTransformOrigin: "100% 0%",
-      WebkitTransform: "rotate(-80deg)",
+      WebkitTransform: "rotate(-70deg)",
       WebkitTransformOrigin: "100% 0%",
-      transform: "rotate(-80deg)",
+      transform: "rotate(-70deg)",
       transformOrigin: "100% 0",
     };
     rightStyle = {
       right: "0vw",
       width: "5.75vw",
-      MozTransform: "rotate(-100deg)",
+      MozTransform: "rotate(-110deg)",
       MozTransformOrigin: "100% 0%",
-      WebkitTransform: "rotate(-100deg)",
+      WebkitTransform: "rotate(-110deg)",
       WebkitTransformOrigin: "100% 0%",
-      transform: "rotate(-100deg)",
+      transform: "rotate(-110deg)",
       transformOrigin: "100% 0",
     };
   } else {
@@ -96,7 +96,9 @@ const BinaryNodeComponent = (props) => {
       display: "none",
     };
   }
-
+  const handleClick = (value) => {
+    props.onRemove(value);
+  };
   return (
     <div className={binaryNode} style={props.style}>
       <div
@@ -113,13 +115,13 @@ const BinaryNodeComponent = (props) => {
             style={{
               margin: "0 auto",
               border: "1px solid black",
-              width: "30px",
-              height: "30px",
+              width: "40px",
+              height: "40px",
               padding: "5px",
               borderRadius: "50%",
               fontSize: "20px",
             }}
-            onClick={props.onRemove(props.value)}
+            onClick={() => handleClick(props.value)}
           >
             {props.value}
           </button>
