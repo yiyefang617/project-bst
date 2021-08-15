@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import BinaryNode from "../classes/BinaryNode";
+import BinaryTreeLevel from "./BinaryTreeLevel";
 import BinarySearchTreeNode from "../classes/BinrayTreeNode";
 
 class BinarySearchTreeApp extends Component {
@@ -20,14 +20,26 @@ class BinarySearchTreeApp extends Component {
     }
   };
   componentDidMount() {
+    console.log("componentdidmount");
     this.state.bTree.insert(10);
     this.state.bTree.insert(6);
     this.state.bTree.insert(15);
     this.state.bTree.insert(20);
+    this.setState({ bTree: this.state.bTree });
   }
   render() {
-    console.log(this.state.bTree);
-    return <div> Hello World</div>;
+    const values = this.state.bTree;
+    console.log("values" + values);
+    return (
+      <div>
+        <div className="bTree">
+          {values.length > 0 &&
+            values.map((value, index) => (
+              <BinaryTreeLevel key={index} level={index + 1} values={value} />
+            ))}
+        </div>
+      </div>
+    );
   }
 }
 export default BinarySearchTreeApp;
