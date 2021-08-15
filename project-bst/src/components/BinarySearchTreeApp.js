@@ -12,12 +12,14 @@ class BinarySearchTreeApp extends Component {
   }
 
   insert = () => {
+    if (this.state.bTree === null) {
+      this.setState({ bTree: new BinarySearchTreeNode() });
+      return;
+    }
     this.state.bTree.insert(this.state.insertValue);
   };
 
   remove = (value) => {
-    console.log(value);
-
     this.state.bTree.remove(value);
     this.setState({ bTree: this.state.bTree });
   };

@@ -11,14 +11,19 @@ class BinarySearchTreeNode {
   }
 
   insertNode(node, newNode) {
-    if (newNode.value < node.value) {
-      if (node.left === null) node.left = newNode;
-      else this.insertNode(node.left, newNode);
-    } else if (node.value === newNode.value) {
-      node.value = newNode.value;
-    } else {
-      if (node.right === null) node.right = newNode;
-      else this.insertNode(node.right, newNode);
+    try {
+      if (this.root === null) this.root = newNode;
+      if (newNode.value < node.value) {
+        if (node.left === null) node.left = newNode;
+        else this.insertNode(node.left, newNode);
+      } else if (node.value === newNode.value) {
+        node.value = newNode.value;
+      } else {
+        if (node.right === null) node.right = newNode;
+        else this.insertNode(node.right, newNode);
+      }
+    } catch (e) {
+      console.log(e);
     }
   }
 
@@ -52,22 +57,27 @@ class BinarySearchTreeNode {
   }
   levelOrder() {
     if (!this.root) return [];
-    var res = [];
-    const traverse = (node, level, index) => {
-      if (node === null) return;
-      const count = Math.pow(2, level);
-      if (res[level] === undefined) {
-        res[level] = new Array(count).fill("");
+    var array = [];
+    search(this.root, 1, 1);
+
+    function search(node, level, index) {
+      if (node) {
+        const count = Math.pow(2, level - 1);
+        if (array.length < level) {
+          array.push(Array(count).fill(""));
+        }
+        var arr = array[level - 1];
+        arr[index - 1] = node;
+        const leftIndex = 2 * index - 1;
+        const rightIndex = 2 * index;
+        search(node.left, level + 1, leftIndex);
+        search(node.right, level + 1, rightIndex);
+      } else {
+        return;
       }
-      res[level][index] = node;
-      const leftIndex = 2 * index;
-      const rightIndex = 2 * index + 1;
-      traverse(node.left, level + 1, leftIndex);
-      traverse(node.right, level + 1, rightIndex);
-    };
-    traverse(this.root, 0, 0);
-    return res;
+    }
+
+    return array;
   }
 }
-
 export default BinarySearchTreeNode;
