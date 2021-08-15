@@ -96,6 +96,7 @@ const BinaryNodeComponent = (props) => {
       display: "none",
     };
   }
+
   return (
     <div className={binaryNode} style={props.style}>
       <div
@@ -108,7 +109,7 @@ const BinaryNodeComponent = (props) => {
         }}
       >
         <div style={{ width: "100%" }} title={props.value}>
-          <div
+          <button
             style={{
               margin: "0 auto",
               border: "1px solid black",
@@ -118,9 +119,10 @@ const BinaryNodeComponent = (props) => {
               borderRadius: "50%",
               fontSize: "20px",
             }}
+            onClick={props.onRemove(props.value)}
           >
             {props.value}
-          </div>
+          </button>
         </div>
         {props.left && <div className="left" style={leftStyle} />}
         {props.right && <div className="right" style={rightStyle} />}

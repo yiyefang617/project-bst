@@ -21,6 +21,7 @@ const BinaryTreeLevel = (props) => {
             style={style}
             left={!(node.left === null)}
             right={!(node.right === null)}
+            onRemove={props.onRemove}
           />
         ))}
     </div>
