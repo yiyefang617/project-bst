@@ -98,8 +98,16 @@ const BinaryNodeComponent = (props) => {
   }
   return (
     <div className={binaryNode} style={props.style}>
-      <div className="round" style={{ width: "100%" }}>
-        <div className="value" title={props.value}>
+      <div
+        className="round"
+        style={{
+          position: "relative",
+          margin: "0 auto",
+          width: "60px",
+          height: "60px",
+        }}
+      >
+        <div style={{ width: "100%" }} title={props.value}>
           <div
             style={{
               margin: "0 auto",
@@ -114,12 +122,8 @@ const BinaryNodeComponent = (props) => {
             {props.value}
           </div>
         </div>
-        {props.value && props.left && (
-          <div className="left" style={leftStyle} />
-        )}
-        {props.value && props.right && (
-          <div className="right" style={rightStyle} />
-        )}
+        {props.left && <div className="left" style={leftStyle} />}
+        {props.right && <div className="right" style={rightStyle} />}
       </div>
     </div>
   );

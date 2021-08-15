@@ -33,7 +33,7 @@ class BinarySearchTreeApp extends Component {
     console.log("values" + values);
     return (
       <div>
-        <div className="bTree">
+        <div className="BST" style={{ position: "relative" }}>
           {values.length > 0 &&
             values.map((value, index) => (
               <BinaryTreeLevel key={index} level={index + 1} values={value} />
