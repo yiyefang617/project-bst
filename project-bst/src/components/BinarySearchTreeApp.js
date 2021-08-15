@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import BinaryTreeLevel from "./BinaryTreeLevel";
+import "../css/BinaryNodeTreeApp.css";
 import BinarySearchTreeNode from "../classes/BinrayTreeNode";
 
 class BinarySearchTreeApp extends Component {
