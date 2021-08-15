@@ -2,8 +2,8 @@ import React from "react";
 
 const BinaryNodeComponent = (props) => {
   return (
-    <div>
-      <div className="round">
+    <div style={props.style}>
+      <div className="round" style={{ width: "100%" }}>
         <div className="value" title={props.value}>
           {props.value}
         </div>

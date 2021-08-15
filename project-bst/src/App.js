@@ -2,7 +2,7 @@ import BinarySearchTreeApp from "./components/BinarySearchTreeApp";
 
 function App() {
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <BinarySearchTreeApp />
     </div>
   );

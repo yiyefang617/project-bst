@@ -28,7 +28,7 @@ class BinarySearchTreeApp extends Component {
     this.setState({ bTree: this.state.bTree });
   }
   render() {
-    const values = this.state.bTree;
+    const values = this.state.bTree.levelOrder();
     console.log("values" + values);
     return (
       <div>
